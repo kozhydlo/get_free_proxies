@@ -42,7 +42,7 @@ def get_free_proxies():
     select_country = input('Выберите страну: ')
     url = f'http://free-proxy.cz/en/proxylist/country/{select_country}/http/ping/all'
     print(url)
-    print('[INFO] Пожалуйста ожидайте, идет сбор халявы...')
+    print('[INFO] Будь ласка очікуйте...')
 
     response = s.get(url, cookies=cookies, headers=headers)
     ip_list = []
@@ -70,9 +70,9 @@ def get_free_proxies():
         with open('ip_list.txt', 'w') as file:
             file.writelines(f'{ip}\n' for ip in ip_list)
 
-        print(f'[INFO] Собрали {len(ip_list)} прокси. Хорошего вам дня!')
+        print(f'[INFO] Зібрали {len(ip_list)} проксі. Гарного вм дня!')
     else:
-        print(f'Что-то пошло не так! Статус код ответа: {response.status_code}')
+        print(f'Шось пішло не так((( Статус коду: {response.status_code}')
 
 def main():
     get_free_proxies()
